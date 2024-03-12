@@ -3,7 +3,7 @@ package main
 const mdtemplate = `
 {{- range .}}
 	{{- if gt .Totals.Failed 0 }}
-### 💔 One or more tests have failed.
+###  One or more tests have failed.
 <details><summary>Expand to view details</summary>
 
 #### {{.Name}}
@@ -12,9 +12,9 @@ const mdtemplate = `
 |------|----|---------|--------|
 		{{- range .Tests}}
 			{{- if .Error}}
-|❌|{{.Name}}|{{.Classname}}|{{.Duration}}|
+|FAIL|{{.Name}}|{{.Classname}}|{{.Duration}}|
 			{{- else}}
-|✔|{{.Name}}|{{.Classname}}|{{.Duration}}|			
+|PASS|{{.Name}}|{{.Classname}}|{{.Duration}}|			
 			{{- end}}
 		{{- end}}
 
